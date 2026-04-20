@@ -194,12 +194,12 @@ def delete_account():
         cursor.execute("DELETE FROM accounts WHERE id = %s", (account_id,))
         db.commit()
         if cursor.rowcount > 0:
-            print(f"✅ Account {account_id} deleted successfully.")
+            print(f"Account {account_id} deleted successfully.")
         else:
-            print("❌ Account not found.")
+            print(" Account not found.")
         db.close()
     except ValueError:
-        print("❌ Invalid account ID.")
+        print("Invalid account ID.")
 
 
 
@@ -220,7 +220,7 @@ if __name__ == "__main__":
                 pin = input("Create a 4-digit PIN: ")
                 create_account(name, initial_deposit, pin)
             except ValueError:
-                print("❌ Invalid amount. Please enter a valid number.")
+                print("Invalid amount. Please enter a valid number.")
         
         elif choice == "2":
             # Login
@@ -229,14 +229,14 @@ if __name__ == "__main__":
                 pin = input("Enter your PIN: ")
                 logged_in_account = login(account_id, pin)
             except ValueError:
-                print("❌ Invalid input. Please enter valid details.")
+                print("Invalid input. Please enter valid details.")
         
         elif choice == "3":
             # Check Balance
             if logged_in_account:
                 check_balance(logged_in_account)
             else:
-                print("❌ Please login first.")
+                print(" Please login first.")
         
         elif choice == "4":
             # Deposit
@@ -245,9 +245,9 @@ if __name__ == "__main__":
                     amount = float(input("Enter deposit amount: $"))
                     deposit(logged_in_account, amount)
                 except ValueError:
-                    print("❌ Invalid amount.")
+                    print(" Invalid amount.")
             else:
-                print("❌ Please login first.")
+                print("Please login first.")
         
         elif choice == "5":
             # Withdraw
@@ -256,23 +256,23 @@ if __name__ == "__main__":
                     amount = float(input("Enter withdrawal amount: $"))
                     withdraw(logged_in_account, amount)
                 except ValueError:
-                    print("❌ Invalid amount.")
+                    print(" Invalid amount.")
             else:
-                print("❌ Please login first.")
+                print(" Please login first.")
         
         elif choice == "6":
             # Access user information
             if logged_in_account:
                 access_user_info(logged_in_account)
             else:
-                print("❌ Please login first.")
+                print(" Please login first.")
         
         elif choice == "7":
             # View Transaction History
             if logged_in_account:
                 view_transaction_history(logged_in_account)
             else:
-                print("❌ Please login first.")
+                print(" Please login first.")
         
         elif choice == "8":
             # Admin Panel
@@ -289,7 +289,7 @@ if __name__ == "__main__":
             elif admin_choice == "3":
                 pass
             else:
-                print("❌ Invalid admin option.")
+                print("Invalid admin option.")
         
         elif choice == "9":
             # Exit
@@ -297,4 +297,4 @@ if __name__ == "__main__":
             break
         
         else:
-            print("❌ Invalid option. Please try again.")
+            print("Invalid option. Please try again.")
