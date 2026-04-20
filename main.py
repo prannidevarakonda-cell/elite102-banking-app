@@ -10,13 +10,13 @@ def get_db_connection():
     )
 
 # TEST THE CONNECTION
-try:
+#try:
     db = get_db_connection()
     if db.is_connected():
-        print("✅ Python is successfully connected to the Database!")
+        print("Python is successfully connected to the Database!")
     db.close()
-except Exception as e:
-    print(f"❌ Connection Failed: {e}")
+#except Exception as e:
+    print(f"Connection Failed: {e}")
 
 def show_menu():
     print("-------------------------------")
@@ -74,7 +74,7 @@ def login(account_id, pin):
         print(f"Welcome, {user[0]}!")
         return account_id
     else:
-        print("❌ Invalid account ID or PIN. Please try again.")
+        print("Invalid account ID or PIN. Please try again.")
         return None
 
 # Check balance, deposit, and withdraw functions
@@ -157,7 +157,7 @@ def list_all_accounts():
     """Admin function to list all accounts"""
     admin_pin = input("Enter admin PIN: ")
     if admin_pin != "1234":  # Simple admin PIN for demo
-        print("❌ Invalid admin PIN.")
+        print("Invalid admin PIN.")
         return
     
     db = get_db_connection()
@@ -179,7 +179,7 @@ def delete_account():
     """Admin function to delete an account"""
     admin_pin = input("Enter admin PIN: ")
     if admin_pin != "1234":
-        print("❌ Invalid admin PIN.")
+        print("Invalid admin PIN.")
         return
     
     try:
